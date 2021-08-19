@@ -6,7 +6,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final appTitle = 'Doctors Appointment';
+    final appTitle = 'Appointment Booking System';
     return MaterialApp(
       title: appTitle,
       home: Scaffold(
@@ -67,7 +67,7 @@ class MyCustomFormState extends State<MyCustomForm> {
               decoration: const InputDecoration(
                 icon: const Icon(Icons.calendar_today),
                 hintText: 'Enter date',
-                labelText: 'date',
+                labelText: 'Date',
               ),
             ),
             Container(
@@ -80,19 +80,19 @@ class MyCustomFormState extends State<MyCustomForm> {
                 )
             ),
           isResult?
-              result=='successfully sent'?
+              result=='Message successfully sent'?
                   Text(
                     result,
                     style: TextStyle(
                       color: Colors.green,
-                      fontSize: 30.0
+                      fontSize: 20.0
                     ),
                   ):
               Text(
                 result,
                 style: TextStyle(
                     color: Colors.pink,
-                    fontSize: 30.0
+                    fontSize: 20.0
                 ),
               )
             :
