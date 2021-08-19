@@ -17,14 +17,17 @@ class SmsService{
   }
 
   Future<String> sendMessage(String time,String date)async{
-    if (await _checkInternetConnection()) {
+    if(time.length==0 || date.length==0){
+      return 'Please fill all the fields';
+    }
+    else if (await _checkInternetConnection()) {
       var url = Uri.parse('https://aws-pinpoint-service-aditi.herokuapp.com/?time=$time&date=$date');
       var response = await http.get(url);
       Map<String,dynamic> row1 = convert.jsonDecode(response.body);
       if (row1['error']!=null) {
-        return 'error occurred';
+        return 'Oops! error occurred';
       }else{
-        return 'successfully sent';
+        return 'Message successfully sent';
       }
     }else{
       return 'Sorry! no internet connection';
